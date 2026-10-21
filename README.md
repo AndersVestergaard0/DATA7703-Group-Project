@@ -19,7 +19,7 @@ data/
 ## Rules
 - **Don't recompute the split.** `01_data_split.ipynb` is the only notebook that should write `data/splits/patient_split.csv`. Every other notebook loads it.
 - **Fit preprocessing stats (PCA, normalization) on the training split only**, then apply to val/test.
-- Preserve aspect ratio when resizing — pad to a square, don't distort via direct resize.
+- Preserve aspect ratio when resizing - pad to a square, don't distort via direct resize.
 
 ## How to run
 ### 1. Create virtual environment
