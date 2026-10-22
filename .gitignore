@@ -216,3 +216,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local DATA7703 baseline runtime files
+/data/local_config.json
+/.vscode/
+/tmp/
+/artifacts/felix_svm/*/pca_linear_svm.joblib
+
+# Local execution and coordination records
+/artifacts/felix_svm/smoke/
+/artifacts/felix_svm/*_executed.ipynb
+/artifacts/felix_svm/*execution_status.json
+/artifacts/felix_svm/course_material_inventory.json
+/artifacts/felix_svm/deliverables_manifest.json
+/artifacts/felix_svm/taskboard_readback.json
+/artifacts/felix_svm/verification.json
+/artifacts/felix_svm/image_content_audit.csv
+/docs/FELIX_HANDOFF_*.md
+/docs/DISCORD_UPDATE_DRAFT_*.txt

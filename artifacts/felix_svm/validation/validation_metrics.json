@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.6584181313598519,
+  "precision": 0.666384778012685,
+  "recall": 0.696113074204947,
+  "f1": 0.6809246057463815,
+  "roc_auc": 0.697459175271879,
+  "tn": 1271,
+  "fp": 789,
+  "fn": 688,
+  "tp": 1576,
+  "split": "val",
+  "images": 4324,
+  "patient_groups": 30,
+  "n_components": 20,
+  "C": 0.1,
+  "preprocessing_backend": "anders_compatible_fallback",
+  "test_evaluated": false
+}
