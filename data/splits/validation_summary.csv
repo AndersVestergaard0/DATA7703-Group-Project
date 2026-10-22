@@ -1,0 +1,11 @@
+Validation Check,Result
+Total images,27558
+Unique recorded patient IDs,201
+Missing image files,0
+Unreadable image files,0
+Exact duplicate images,0
+Cross-split exact duplicate groups,0
+Patient IDs crossing splits,0
+Images missing from official mappings,0
+Official patient-ID mismatches,0
+Potential shared-prefix alias groups,1
