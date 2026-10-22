@@ -1,0 +1,60 @@
+{
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "base_git_commit": "f09634c688e209b022ef089c8bf0be0a9b7715a7",
+  "test_images": 4110,
+  "test_patients": 31,
+  "models": {
+    "cnn": {
+      "metrics": {
+        "model": "cnn",
+        "split": "test",
+        "n_images": 4110,
+        "accuracy": 0.9289537712895377,
+        "precision": 0.9442970822281167,
+        "recall": 0.9049313675648195,
+        "f1": 0.9241952232606438,
+        "roc_auc": 0.9792493074601669,
+        "tn": 2038,
+        "fp": 105,
+        "fn": 187,
+        "tp": 1780,
+        "positive_class": "Parasitized",
+        "class_to_index": {
+          "Uninfected": 0,
+          "Parasitized": 1
+        }
+      },
+      "checkpoint_info": {
+        "model": "cnn",
+        "img_size": 128,
+        "normalize_method": "zero_one"
+      }
+    },
+    "resnet18": {
+      "metrics": {
+        "model": "resnet18",
+        "split": "test",
+        "n_images": 4110,
+        "accuracy": 0.9613138686131387,
+        "precision": 0.967425025853154,
+        "recall": 0.951194712760549,
+        "f1": 0.9592412201999487,
+        "roc_auc": 0.9899356650244671,
+        "tn": 2080,
+        "fp": 63,
+        "fn": 96,
+        "tp": 1871,
+        "positive_class": "Parasitized",
+        "class_to_index": {
+          "Uninfected": 0,
+          "Parasitized": 1
+        }
+      },
+      "checkpoint_info": {
+        "model": "resnet18",
+        "img_size": 128,
+        "normalize_method": "imagenet"
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "model": "resnet18",
+  "img_size": 128,
+  "normalize_method": "imagenet"
+}

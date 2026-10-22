@@ -1,0 +1,19 @@
+{
+  "model": "cnn",
+  "split": "test",
+  "n_images": 4110,
+  "accuracy": 0.9289537712895377,
+  "precision": 0.9442970822281167,
+  "recall": 0.9049313675648195,
+  "f1": 0.9241952232606438,
+  "roc_auc": 0.9792493074601669,
+  "tn": 2038,
+  "fp": 105,
+  "fn": 187,
+  "tp": 1780,
+  "positive_class": "Parasitized",
+  "class_to_index": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  }
+}

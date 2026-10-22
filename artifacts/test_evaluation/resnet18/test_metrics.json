@@ -1,0 +1,19 @@
+{
+  "model": "resnet18",
+  "split": "test",
+  "n_images": 4110,
+  "accuracy": 0.9613138686131387,
+  "precision": 0.967425025853154,
+  "recall": 0.951194712760549,
+  "f1": 0.9592412201999487,
+  "roc_auc": 0.9899356650244671,
+  "tn": 2080,
+  "fp": 63,
+  "fn": 96,
+  "tp": 1871,
+  "positive_class": "Parasitized",
+  "class_to_index": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  }
+}

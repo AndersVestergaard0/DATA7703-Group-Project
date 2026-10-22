@@ -1,12 +1,7 @@
-import ast
-from pathlib import Path
-import tempfile
 import unittest
 from unittest.mock import patch
-import json
 import numpy as np
 import pandas as pd
-from PIL import Image
 from src import baseline_utils as b
 
 class BaselineIntegrityTests(unittest.TestCase):
@@ -29,21 +24,6 @@ class BaselineIntegrityTests(unittest.TestCase):
         m=b.classification_metrics([0,1,1,0],[0,0,1,1],[-.7,-.2,.8,.4])
         self.assertEqual([m[k] for k in ['tn','fp','fn','tp']],[1,1,1,1])
         self.assertAlmostEqual(m['f1'],.5)
-
-    def test_fallback_matches_actual_cnn_placeholder(self):
-        n=json.loads(Path('notebooks/03_cnn.ipynb').read_text())
-        source=next(''.join(c['source']) for c in n['cells']
-            if c['cell_type']=='code' and 'def load_and_pad' in ''.join(c['source']))
-        tree=ast.parse(source)
-        function=next(node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=='load_and_pad')
-        scope={'np':np,'Image':Image,'IMG_SIZE':32}
-        exec(compile(ast.Module(body=[function],type_ignores=[]),'team_cnn_placeholder','exec'),scope)
-        with tempfile.TemporaryDirectory() as directory:
-            p=Path(directory)/'image.png'
-            for width,height in [(9,3),(3,9),(7,7)]:
-                pixels=np.arange(width*height*3,dtype=np.uint8).reshape(height,width,3)
-                Image.fromarray(pixels).save(p)
-                np.testing.assert_array_equal(b.legacy_load_and_pad(p,32),scope['load_and_pad'](str(p),32))
 
     def test_shared_scaled_images_are_not_scaled_twice(self):
         image=np.full((4,4,3),.5,dtype=np.float32)

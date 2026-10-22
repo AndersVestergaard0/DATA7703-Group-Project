@@ -1,0 +1,5 @@
+{
+  "model": "cnn",
+  "img_size": 128,
+  "normalize_method": "zero_one"
+}
