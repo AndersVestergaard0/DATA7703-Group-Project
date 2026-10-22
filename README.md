@@ -42,4 +42,19 @@ pip install -r requirements.txt
 ```
 
 ### 4. Run notebooks in order
-Run `notebooks/00_eda.ipynb` first (downloads the dataset, writes `data/raw/image_metadata.csv`), then `notebooks/01_data_split.ipynb` (writes `data/splits/patient_split.csv`), then any of the model notebooks.
+Use 00_eda.ipynb if the image data still needs downloading. The frozen data/splits/patient_split.csv is already committed: model notebooks should read it, without rerunning 01_data_split.ipynb or regenerating the split.
+
+
+## Felix PCA + linear SVM baseline
+
+Open notebooks/02_baseline_svm.ipynb in Antigravity and select the data7703 Python kernel. Set MALARIA_DATA_ROOT to the folder directly containing Parasitized and Uninfected; a local data/local_config.json with a data_root field is also supported and Git-ignored.
+
+For the command-line runner, register the kernel once with: python -m ipykernel install --user --name data7703 --display-name "Python (DATA7703)".
+
+Run All performs train-only PCA fitting and a declared four-candidate validation comparison. Test evaluation is disabled until the team freezes preprocessing, model choices and analysis. Outputs are written to artifacts/felix_svm/validation. The current main shared preprocessing is a stub; fallback use is explicit in the notebook and configuration, pending Shashank's shared implementation.
+
+Integrity checks: python -m unittest discover -s tests -v
+
+Reload/prediction verification: python scripts/verify_baseline.py
+
+See docs/COURSE_ALIGNMENT_BASELINE.md for course sources and docs/FELIX_HANDOFF_20261022.md for the actual validation results and remaining presentation/team work.
