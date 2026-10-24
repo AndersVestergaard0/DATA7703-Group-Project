@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "n_images": 4110,
+  "patient_groups": 31,
+  "checkpoint_sha256": "c487717a438ba8329adf486c6f74dafa4cb4105baa1d081e5e0e4bdd8c26b342",
+  "model_refitted": false,
+  "validation_labels_unchanged": true,
+  "checks": [
+    {
+      "model": "PCA + linear SVM",
+      "prediction_csv_sha256": "7fba42fe414d8d75436579fb9f1c4f0c8e5d238b69eee845c07fd23006fc1181",
+      "metrics_json_sha256": "bc5817f10d67bb4e9c61293a0f3ddb22a57bef75f90ce545958f5eda7e41bd9b",
+      "manifest_filename_patient_label_match": true,
+      "recomputed_metrics_and_confusion_matrix_match": true
+    },
+    {
+      "model": "Small CNN",
+      "prediction_csv_sha256": "d84a9ead9fedf17530eb12e6c07ac7ca2c433283acd6a684a4572e4eae30a374",
+      "metrics_json_sha256": "c22e1dda070fbd14587bb6aa162b8cc915dfdead0dc4ac06651fc2d23d12e975",
+      "manifest_filename_patient_label_match": true,
+      "recomputed_metrics_and_confusion_matrix_match": true
+    },
+    {
+      "model": "ResNet-18",
+      "prediction_csv_sha256": "9fa33d3328abe0aad7bac070fac2daaf7be071d1520d76927126abd04f554986",
+      "metrics_json_sha256": "70d9b35b7a31aaa17f104131355f8719d421c008125526bfc5394e8d6979c737",
+      "manifest_filename_patient_label_match": true,
+      "recomputed_metrics_and_confusion_matrix_match": true
+    }
+  ],
+  "interpretation": "Descriptive performance on this split; no significance test or clinical validation claimed."
+}

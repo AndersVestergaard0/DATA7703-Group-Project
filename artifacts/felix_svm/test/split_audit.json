@@ -1,0 +1,34 @@
+{
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "rows": 27558,
+  "image_counts": {
+    "train": 19124,
+    "val": 4324,
+    "test": 4110
+  },
+  "patient_counts": {
+    "test": 31,
+    "train": 140,
+    "val": 30
+  },
+  "class_counts": {
+    "Parasitized": {
+      "test": 1967,
+      "train": 9548,
+      "val": 2264
+    },
+    "Uninfected": {
+      "test": 2143,
+      "train": 9576,
+      "val": 2060
+    }
+  },
+  "patient_overlap": false,
+  "duplicate_image_keys": 0,
+  "missing_images": 0,
+  "positive_class": "Parasitized",
+  "class_to_index": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  }
+}
