@@ -1,0 +1,31 @@
+{
+  "sha256": "c487717a438ba8329adf486c6f74dafa4cb4105baa1d081e5e0e4bdd8c26b342",
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "shared_preprocessing_sha256": "0b5d1bcfd8ef5514fcf3225cf38fe13bab6e3817f4ab3fb0b9e4a9a6d1cbcce2",
+  "selected_configuration": {
+    "method": "PCA + linear SVC",
+    "image_size": 32,
+    "n_components": 20,
+    "C": 0.1,
+    "seed": 42,
+    "selection_rule": "validation F1 descending, recall descending, components ascending, C ascending",
+    "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+    "preprocessing_backend": "anders_compatible_fallback",
+    "shared_preprocessing_sha256": "beaca6fc19cc950e83aa87780bf84d932402c6f2ba967ebcf4921fb4d000c258",
+    "baseline_utils_sha256": "b892c284f0274316fa6c3d1ef81f30b4d6e751c52e921d559ed20c6fa2af574d",
+    "base_git_commit": "284f80dacd86c272d7c58c398f292335193e953c",
+    "smoke_run": false,
+    "test_evaluated": false,
+    "training_images": 19124,
+    "validation_images": 4324,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.3",
+      "scikit-learn": "1.9.0",
+      "Pillow": "12.3.0",
+      "matplotlib": "3.11.0"
+    }
+  },
+  "origin": "Copy of the already-selected 2026-10-22 training checkpoint; no refit for test evaluation",
+  "bytes": 3293229
+}

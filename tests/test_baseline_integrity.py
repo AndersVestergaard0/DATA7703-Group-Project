@@ -41,4 +41,18 @@ class BaselineIntegrityTests(unittest.TestCase):
             self.assertEqual(scale.call_count,2)  # probe plus one actual image
             self.assertEqual(backend,'team_shared_load_and_scale')
 
+
+    def test_shared_loader_preserves_frozen_baseline_pixels(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from PIL import Image
+        image = (np.arange(17*23*3).reshape(17,23,3) % 256).astype(np.uint8)
+        with TemporaryDirectory() as folder:
+            path = Path(folder) / 'cell.png'
+            Image.fromarray(image).save(path)
+            for size in (8,32,128):
+                shared = b.shared.load_and_pad(str(path),size)
+                frozen = b.legacy_load_and_pad(path,size)
+                np.testing.assert_array_equal(shared,frozen)
+
 if __name__=='__main__': unittest.main()

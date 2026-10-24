@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-22T16:10:57.499211+10:00",
+  "main_commit": "f09634c688e209b022ef089c8bf0be0a9b7715a7",
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "shared_preprocessing_sha256": "0b5d1bcfd8ef5514fcf3225cf38fe13bab6e3817f4ab3fb0b9e4a9a6d1cbcce2",
+  "backend": "team_shared_scaled_loader",
+  "image_size": 32,
+  "pixel_check_counts": {
+    "train": 19124,
+    "val": 4324
+  },
+  "pixel_mismatches": 0,
+  "maximum_pixel_difference": 0.0,
+  "validation_predictions_checked": 4324,
+  "changed_validation_labels": 0,
+  "maximum_margin_difference": 8.108649716120908e-07,
+  "metrics_replayed": {
+    "accuracy": 0.6584181313598519,
+    "precision": 0.666384778012685,
+    "recall": 0.696113074204947,
+    "f1": 0.6809246057463815,
+    "roc_auc": 0.697459175271879,
+    "tn": 1271,
+    "fp": 789,
+    "fn": 688,
+    "tp": 1576
+  },
+  "model_refitted": false,
+  "test_evaluated": false,
+  "method": "All train/val inputs compared bit-for-bit; replay saved PCA/SVM on validation only. Original validation artifacts retained."
+}

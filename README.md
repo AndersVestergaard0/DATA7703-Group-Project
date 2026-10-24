@@ -45,16 +45,18 @@ pip install -r requirements.txt
 Use 00_eda.ipynb if the image data still needs downloading. The frozen data/splits/patient_split.csv is already committed: model notebooks should read it, without rerunning 01_data_split.ipynb or regenerating the split.
 
 
-## Felix PCA + linear SVM baseline
+## PCA and linear SVM baseline
 
-Open notebooks/02_baseline_svm.ipynb in Antigravity and select the data7703 Python kernel. Set MALARIA_DATA_ROOT to the folder directly containing Parasitized and Uninfected; a local data/local_config.json with a data_root field is also supported and Git-ignored.
+The baseline uses the shared frozen patient split and implemented shared preprocessing: aspect-preserving resize/padding, 32x32 RGB, pixel values in [0,1]. PCA is fitted on training images only. Four declared validation candidates compare 20/50 PCA components and linear SVC C=0.1/1.0; the validation-selected model uses 20 components and C=0.1.
 
-For the command-line runner, register the kernel once with: python -m ipykernel install --user --name data7703 --display-name "Python (DATA7703)".
+- Training/validation workflow: notebooks/02_baseline_svm.ipynb. Select the Python environment containing the baseline dependencies.
+- Read saved final results: notebooks/07_frozen_svm_test.ipynb.
+- Frozen checkpoint and configuration: models/pca_linear_svm.joblib and models/pca_linear_svm_metadata.json.
+- Final test metrics, predictions and reproduction instructions: artifacts/felix_svm/test/README.md.
+- Reproduction environment: Python 3.11 with requirements-baseline-frozen.txt. Set MALARIA_DATA_ROOT to the folder containing Parasitized/ and Uninfected/.
+- Integrity tests: python -m unittest discover -s tests -v.
+- Verify exported final results without image inference: python scripts/verify_frozen_svm_test.py.
 
-Run All performs train-only PCA fitting and a declared four-candidate validation comparison. Test evaluation is disabled until the team freezes preprocessing, model choices and analysis. Outputs are written to artifacts/felix_svm/validation. The current main shared preprocessing is a stub; fallback use is explicit in the notebook and configuration, pending Shashank's shared implementation.
+The original validation-selected checkpoint was evaluated unchanged on the shared 4,110-image test cohort (31 recorded patient ID groups). Test accuracy is 65.67%, recall 60.90%, F1 0.6294 and ROC-AUC 0.7133. Validation recall was 69.61%; the lower test recall must be considered alongside the similar accuracy.
 
-Integrity checks: python -m unittest discover -s tests -v
-
-Reload/prediction verification: python scripts/verify_baseline.py
-
-See docs/COURSE_ALIGNMENT_BASELINE.md for course sources and docs/FELIX_HANDOFF_20261022.md for the actual validation results and remaining presentation/team work.
+The frozen evaluator checks checkpoint, split and shared-preprocessing hashes, replays saved validation predictions, and performs no fitting. Completed results are read without repeating inference. The final comparison covers complete pipelines: SVM 32px; CNN/ResNet 128px; ResNet uses ImageNet initialization and normalization. SVM decision scores are margins, not calibrated probabilities.

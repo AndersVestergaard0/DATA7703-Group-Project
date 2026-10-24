@@ -1,0 +1,45 @@
+{
+  "model": "pca_linear_svm",
+  "checkpoint": "models/pca_linear_svm.joblib",
+  "checkpoint_sha256": "c487717a438ba8329adf486c6f74dafa4cb4105baa1d081e5e0e4bdd8c26b342",
+  "manifest_sha256": "e5e60a3dfa5104ddae084e542baa30323d721e7ad663fc42066dfcf9bb5fa869",
+  "shared_preprocessing_sha256": "0b5d1bcfd8ef5514fcf3225cf38fe13bab6e3817f4ab3fb0b9e4a9a6d1cbcce2",
+  "evaluation_script_sha256": "eed059a348faca54d0b5ce141854cc28b922a399f7e9947ee641ce75e5b2dcde",
+  "source_git_commit": "892d79d99af6694cd84d5f57ffc9151846347582",
+  "image_size": 32,
+  "colour": "RGB",
+  "normalization": "zero_one",
+  "resize": "aspect-preserving bilinear, centered black padding",
+  "preprocessing_backend": "team_shared_scaled_loader",
+  "n_components": 20,
+  "C": 0.1,
+  "class_to_index": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "positive_class": "Parasitized",
+  "score_type": "signed SVC decision_function; not calibrated probability",
+  "decision_threshold": 0.0,
+  "fit_partitions": [
+    "train"
+  ],
+  "selection_partition": "val",
+  "evaluation_partition": "test",
+  "model_refitted": false,
+  "protocol_frozen": true,
+  "validation_replay": {
+    "images": 4324,
+    "changed_labels": 0,
+    "maximum_margin_difference": 8.108649716120908e-07,
+    "atol": 2e-06,
+    "rtol": 1e-06
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "Pillow": "12.3.0"
+  },
+  "started_at_brisbane": "2026-10-23T03:55:45.895214+10:00",
+  "checkpoint_file_unchanged": true
+}
